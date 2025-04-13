@@ -22,9 +22,8 @@ class QuoteBox extends React.Component {
     this.setState({
       quotes: data.quotes,
       isLoading: false,
-    }, () => {
-      document.body.style.backgroundColor = this.state.color;
     });
+    document.body.style.backgroundColor = this.state.color;
   } catch (err) {
     console.log(err)
   }
@@ -38,10 +37,19 @@ class QuoteBox extends React.Component {
       color: randomColor
     })
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.color !== this.state.color) {
+      document.body.style.backgroundColor = this.state.color;
+    }
+  }
+
   render() {
-  if (this.state.isLoading) {
+
+    if (this.state.isLoading) {
       return <div>Loading...</div>;
     }
+
     const currQuote = this.state.quotes[this.state.quoteIndex];
     
     const boxColor = {
