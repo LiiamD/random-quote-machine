@@ -22,7 +22,9 @@ class QuoteBox extends React.Component {
     this.setState({
       quotes: data.quotes,
       isLoading: false,
-    })
+    }, () => {
+      document.body.style.backgroundColor = this.state.color;
+    });
   } catch (err) {
     console.log(err)
   }
@@ -48,7 +50,7 @@ class QuoteBox extends React.Component {
     
     
     return (
-      <body style={boxColor}>
+      
       <div id="quote-box">
       <p id="text">{currQuote.quote}</p>
       <p id="author">— {currQuote.author}</p>
@@ -60,7 +62,7 @@ class QuoteBox extends React.Component {
       </div>
         
     </div>
-      </body>
+      
     )
   }
 };
