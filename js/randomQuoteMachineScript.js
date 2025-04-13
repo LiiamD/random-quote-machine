@@ -68,9 +68,9 @@ class QuoteBox extends React.Component {
         <i className="fas fa-brands fa-x-twitter"></i>
         </a> 
       </div>
-        
+     
     </div>
-      
+
     )
   }
 };
